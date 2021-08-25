@@ -3,31 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaParlor.Server", "Server\PizzaParlor.Server.csproj", "{205840F3-D53D-4511-B6CD-EFA9EABC310C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaParlor.Client", "Client\PizzaParlor.Client.csproj", "{0266F16F-6DE8-4538-9204-18FBB0C47E6D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaParlor.Shared", "Shared\PizzaParlor.Shared.csproj", "{98409904-C2F8-4A09-87E8-430590DFE852}"
-EndProject
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{205840F3-D53D-4511-B6CD-EFA9EABC310C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{205840F3-D53D-4511-B6CD-EFA9EABC310C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{205840F3-D53D-4511-B6CD-EFA9EABC310C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{205840F3-D53D-4511-B6CD-EFA9EABC310C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0266F16F-6DE8-4538-9204-18FBB0C47E6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0266F16F-6DE8-4538-9204-18FBB0C47E6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0266F16F-6DE8-4538-9204-18FBB0C47E6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0266F16F-6DE8-4538-9204-18FBB0C47E6D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{98409904-C2F8-4A09-87E8-430590DFE852}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98409904-C2F8-4A09-87E8-430590DFE852}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98409904-C2F8-4A09-87E8-430590DFE852}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98409904-C2F8-4A09-87E8-430590DFE852}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
