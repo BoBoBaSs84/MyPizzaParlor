@@ -8,18 +8,17 @@ using System.Threading.Tasks;
 
 namespace PizzaPlace.Client
 {
-  public class Program
-  {
-    public static async Task Main(string[] args)
+    public class Program
     {
-      var builder = WebAssemblyHostBuilder.CreateDefault(args);
-      builder.RootComponents.Add<App>("app");
-      builder.Services.AddTransient<IMenuService, MenuService>();
-      builder.Services.AddTransient<IOrderService, OrderService>();
-      builder.Services.AddSingleton<State>();
-
-      builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-      await builder.Build().RunAsync();
+        public static async Task Main(string[] args)
+        {
+            var builder = WebAssemblyHostBuilder.CreateDefault(args);
+            builder.RootComponents.Add<App>("#app");
+            builder.Services.AddTransient<IMenuService, MenuService>();
+            builder.Services.AddTransient<IOrderService, OrderService>();
+            builder.Services.AddSingleton<State>();
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            await builder.Build().RunAsync();
+        }
     }
-  }
 }
