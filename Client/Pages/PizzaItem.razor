@@ -1,0 +1,18 @@
+﻿<div class="row">
+    <div class="col">
+        @Pizza.Name
+    </div>
+    <div class="col">
+        @Pizza.Price
+    </div>
+    <div class="col">
+        <img src="@SpicinessImage(Pizza.Spiciness)"
+                      alt="@Pizza.Spiciness"   />
+    </div>
+    <div class="col">
+        <button class="@ButtonClass"
+                            @onclick="@(async () => await Selected.InvokeAsync(Pizza))">
+            @ButtonTitle
+        </button>
+    </div>
+</div>

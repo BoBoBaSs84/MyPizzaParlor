@@ -1,0 +1,22 @@
+﻿@page "/"
+
+<!-- Menu -->
+<PizzaList Title="Our selection of pizzas"
+           Menu="@State.Menu"
+           Selected="@(async(pizza) => AddToBasket(pizza))" />
+<!-- End menu -->
+<!-- Shopping Basket -->
+<ShoppingBasket Title="Your current order"
+                Basket="@State.Basket"
+                GetPizzaFromId="@State.Menu.GetPizza"
+                Selected="@((pos) => RemoveFromBasket(pos))" />
+<!-- End Shopping Basket -->
+<!-- Customer entry -->
+<CustomerEntry Title="Please enter your details below"
+               ButtonTitle="Checkout"
+               ButtonClass="btn btn-primary"
+               Customer="@State.Basket.Customer"
+               Submit="@PlaceOrder" />
+<!-- End Customer entry -->
+
+<p>@State.ToJson()</p>
