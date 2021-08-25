@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using PizzaParlor.Client.Services;
 using PizzaParlor.Shared;
 using PizzaParlor.Shared.Interfaces;
 using System;
@@ -14,8 +15,8 @@ namespace PizzaParlor.Client
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
-            builder.Services.AddTransient<IMenuService, HardCodedMenuService>();
-            builder.Services.AddTransient<IOrderService, ConsoleOrderService>();
+            builder.Services.AddTransient<IMenuService, MenuService>();
+            builder.Services.AddTransient<IOrderService, OrderService>();
             builder.Services.AddTransient(opt => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddSingleton<State>();
             await builder.Build().RunAsync();
