@@ -15,8 +15,8 @@ namespace PizzaPlace.Server.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("PizzaPlace.Shared.Customer", b =>
@@ -28,18 +28,18 @@ namespace PizzaPlace.Server.Migrations
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Street")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -57,7 +57,7 @@ namespace PizzaPlace.Server.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("money");
 
                     b.HasKey("Id");
 
@@ -86,6 +86,29 @@ namespace PizzaPlace.Server.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Pizzas");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Pepperoni",
+                            Price = 8.99m,
+                            Spiciness = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Margarita",
+                            Price = 7.99m,
+                            Spiciness = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Diabolo",
+                            Price = 9.99m,
+                            Spiciness = 2
+                        });
                 });
 
             modelBuilder.Entity("PizzaPlace.Shared.PizzaOrder", b =>
@@ -117,6 +140,8 @@ namespace PizzaPlace.Server.Migrations
                         .HasForeignKey("PizzaPlace.Shared.Order", "CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("PizzaPlace.Shared.PizzaOrder", b =>
@@ -128,6 +153,20 @@ namespace PizzaPlace.Server.Migrations
                     b.HasOne("PizzaPlace.Shared.Pizza", "Pizza")
                         .WithMany()
                         .HasForeignKey("PizzaId");
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Pizza");
+                });
+
+            modelBuilder.Entity("PizzaPlace.Shared.Customer", b =>
+                {
+                    b.Navigation("Order");
+                });
+
+            modelBuilder.Entity("PizzaPlace.Shared.Order", b =>
+                {
+                    b.Navigation("PizzaOrders");
                 });
 #pragma warning restore 612, 618
         }
